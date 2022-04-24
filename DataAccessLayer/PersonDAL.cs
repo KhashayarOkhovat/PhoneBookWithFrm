@@ -8,8 +8,15 @@ namespace DataAccessLayer
 {
     public class PersonDAL  
     {
+        //dependency injection 
+      private readonly MyContext _context;
 
-       MyContext ctx = new MyContext();
+        public ProductService(MyContext context)
+        {
+            _context = context;
+        }
+        
+       //MyContext ctx = new MyContext();
         public void Delet(int id)
         {
             var person = ctx.Pepole.Find(id);
